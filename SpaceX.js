@@ -1,4 +1,4 @@
-// click the first "Where are you located" option if it's not already selected
+// click the first "Where are you located" option if it's not already selected by Simplify
 try {
     document.querySelector('li[role="option"]').click();
 } catch (error) {
