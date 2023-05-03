@@ -1,5 +1,26 @@
+// click the first "Where are you located" option if it's not already selected
+try {
+    document.querySelector('li[role="option"]').click();
+} catch (error) {
+    console.error('Error occurred while clicking the element:', error);
+}
+
 // check the box for "I hereby declare the information provided is true..."
-document.querySelector('label:has(input[aria-required="true"])').querySelector('input[type="checkbox"]').checked = true;
+try {
+    const checkboxLabel = document.querySelector('label:has(input[aria-required="true"])');
+    if (checkboxLabel) {
+        const checkbox = checkboxLabel.querySelector('input[type="checkbox"]');
+        if (checkbox) {
+            checkbox.checked = true;
+        } else {
+            console.warn('Checkbox element for "I hereby declare the information provided is true..." not found.');
+        }
+    } else {
+        console.warn('Label element for "I hereby declare the information provided is true..." not found.');
+    }
+} catch (error) {
+    console.error('Error occurred while setting checkbox:', error);
+}
 
 // gather the fields and their values
 const fields = {
@@ -12,6 +33,7 @@ const fields = {
     'GMAT Score': 'Not applicable',
     'SpaceX Employment History': 'I have never worked for SpaceX',
     'How many years of professional work experience do you have?': '8',
+    'Are within a commutable distance or willing to relocate?': 'Yes',
     'Are you within a commutable distance or willing to relocate?': 'Yes',
     'Active Security Clearance(s)': 'Do not wish to disclose',
     'How did you hear about this job?': 'I am in the industry',
@@ -61,7 +83,9 @@ for (const [labelText, optionText] of Object.entries(fields)) {
 }
 
 // check the boxes for "I am willing to work in the following locations..."
-const sectionLabel = Array.from(document.getElementsByTagName('label')).find(label => label.textContent.includes('Which location(s) are you interested in?'));
+const sectionLabel_1 = Array.from(document.getElementsByTagName('label')).find(label => label.textContent.includes('Which location(s) are you interested in?'));
+const sectionLabel_2 = Array.from(document.getElementsByTagName('label')).find(label => label.textContent.includes('Which location are you interested in?'));
+const sectionLabel = sectionLabel_1 || sectionLabel_2;
 if (sectionLabel) {
     const checkboxes = Array.from(sectionLabel.parentNode.getElementsByTagName('input'));
     for (const checkbox of checkboxes) {
@@ -72,3 +96,6 @@ if (sectionLabel) {
 } else {
     console.warn(`Section label "Which location(s) are you interested in?" not found.`);
 }
+
+// submit the application
+setTimeout(() => document.getElementById('submit_app').click(), 500);
