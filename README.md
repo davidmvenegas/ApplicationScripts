@@ -1,3 +1,3 @@
-# Job Application Scripts
+# Application Scripts
 
 Just storing some job application automation scripts...
