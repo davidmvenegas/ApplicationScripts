@@ -22,8 +22,8 @@ try {
     console.error('Error occurred while setting checkbox:', error);
 }
 
-// gather the fields and their values
-const fields = {
+// gather the custom fields and their values
+const customFields = {
     'GPA (Undergraduate)': '3.9 out of 4.0',
     'GPA (Graduate)': '3.9 out of 4.0',
     'GPA (Doctorate)': 'Not applicable',
@@ -42,8 +42,8 @@ const fields = {
     'Do you meet all of the Basic Qualifications listed for this job?': 'Yes',
 };
 
-// fill in the fields
-for (const [labelText, optionText] of Object.entries(fields)) {
+// fill in the custom fields
+for (const [labelText, optionText] of Object.entries(customFields)) {
     try {
         const labels = Array.from(document.getElementsByTagName('label'));
         const targetLabel = labels.find(label => label.textContent.includes(labelText));
