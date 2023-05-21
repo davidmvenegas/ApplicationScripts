@@ -7,7 +7,7 @@ document.querySelectorAll('.application-label .text').forEach(label => {
             });
         } else if (label.textContent.includes('What is/are your preferred office location(s)?')) {
             label.parentElement.nextElementSibling.querySelectorAll('.application-answer-alternative').forEach(el => {
-                if (el.textContent === 'Costa Mesa') el.previousElementSibling.checked = true;
+                el.previousElementSibling.checked = true;
             });
         }
     } catch (error) {
