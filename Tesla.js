@@ -9,7 +9,7 @@ const pageOneFields = {
     "Legal Last Name": "Venegas",
     "Phone Number": "857-327-3414",
     "Contact Phone Type": "mobile",
-    "Email": "venegasdavidm@gmail.com",
+    "Email": "david@venegas.com",
     "Country/Region of Residence": "US",
     "Profile Link": "https://www.linkedin.com/in/david-venegas-m/",
     "Profile Link Type": "linkedin",

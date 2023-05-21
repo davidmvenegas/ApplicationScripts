@@ -20,7 +20,7 @@ document.querySelectorAll('.application-label .text').forEach(label => {
 const customFields = {
     'What is the country of your birth?': 'United States',
     'Please list all countries of which you are a citizen, and, if applicable, the date you obtained citizenship.': 'United States',
-    'Please list any additional countries of which you are a lawful permanent resident and, if applicable, the date you obtained permanent residency.': 'United States'
+    'Please list any additional countries of which you are a lawful permanent resident and, if applicable, the date you obtained permanent residency.': 'N/A'
 };
 
 for (const labelText in customFields) {
