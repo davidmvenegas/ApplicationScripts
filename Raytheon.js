@@ -81,6 +81,4 @@ async function processSecondElements() {
     setTimeout(() => document.querySelector('button[data-automation-id="bottom-navigation-next-button"]').click(), 500);
 }
 
-processSecondElements();
-
 processFirstElements();
