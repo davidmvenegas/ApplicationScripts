@@ -58,6 +58,20 @@ setTimeout(() => {
         { labelText: "", optionText: "yes" }  // default option
     ]
 
+    async function clickOption(button, optionText) {
+        button.dispatchEvent(clickEvent);
+        await new Promise(resolve => setTimeout(resolve, 250));
+        let option = Array.from(document.querySelectorAll('div.wd-popup li[role="option"]'))
+            .find(option => option.textContent.trim().toLowerCase() === optionText);
+        if (option) {
+            option.dispatchEvent(clickEvent);
+            await new Promise(resolve => setTimeout(resolve, 250));
+            document.body.dispatchEvent(clickEvent);
+        } else {
+            console.warn('Option not found');
+        }
+    }
+
     async function processElements() {
         const elements = Array.from(document.querySelectorAll('[data-automation-id="secondaryQuestionnairePage"] div.css-7t35fz'));
         for (let element of elements) {
@@ -73,20 +87,6 @@ setTimeout(() => {
                 selectedOption = selectedOption || dropdownOptions[dropdownOptions.length - 1];  // default to yes if no match found
                 await clickOption(element.querySelector('button'), selectedOption.optionText.toLowerCase());
             }
-        }
-    }
-
-    async function clickOption(button, optionText) {
-        button.dispatchEvent(clickEvent);
-        await new Promise(resolve => setTimeout(resolve, 250));
-        let option = Array.from(document.querySelectorAll('div.wd-popup li[role="option"]'))
-            .find(option => option.textContent.trim().toLowerCase() === optionText);
-        if (option) {
-            option.dispatchEvent(clickEvent);
-            await new Promise(resolve => setTimeout(resolve, 250));
-            document.body.dispatchEvent(clickEvent);
-        } else {
-            console.warn('Option not found');
         }
     }
 
