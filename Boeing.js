@@ -91,7 +91,7 @@ setTimeout(() => {
     }
 
     processElements();
-}, 4000);
+}, 5000);
 
 
 // ---------------- Allow Data ---------------- //

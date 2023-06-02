@@ -43,4 +43,7 @@ for (const labelText in customFields) {
     }
 }
 
+// add cover letter
+document.getElementById('additional-information').value = 'I am a diligent and passionate engineer driven by the desire to make a meaningful impact. My diverse skill set, proficiency, and proven track record of performing effectively both independently and collaboratively under tight deadlines give me confidence that I would be an excellent fit for this role.';
+
 setTimeout(() => document.getElementById('btn-submit').click(), 500);
