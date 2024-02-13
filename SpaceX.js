@@ -22,20 +22,38 @@ try {
     console.error('Error occurred while setting checkbox:', error);
 }
 
+// fill in the 'How did you hear about this job?' field
+try {
+    const labels = Array.from(document.getElementsByTagName('label'));
+    const targetLabel = labels.find(label => label.textContent.includes('How did you hear about this job?'));
+    if (targetLabel) {
+        const input = targetLabel.querySelector('input[aria-required="true"]');
+        if (input) {
+            input.value = 'I am in the industry';
+        } else {
+            console.warn('Input element for "How did you hear about this job?" not found.');
+        }
+    } else {
+        console.warn('Label element for "How did you hear about this job?" not found.');
+    }
+} catch (error) {
+    console.error('Error occurred while setting the input:', error);
+}
+
 // gather the custom fields and their values
 const customFields = {
     'GPA (Undergraduate)': '3.9 out of 4.0',
     'GPA (Graduate)': '3.9 out of 4.0',
-    'GPA (Doctorate)': 'Not applicable',
+    'GPA (Doctorate)': 'Other/Not applicable',
     'SAT Score': '1590 out of 1600',
     'ACT Score': '35 out of 36',
     'GRE Score': 'Not applicable',
     'GMAT Score': 'Not applicable',
     'SpaceX Employment History': 'I have never worked for SpaceX',
-    'How many years of professional work experience do you have?': '8',
+    'How many years of professional work experience do you have?': '6',
     'Are within a commutable distance or willing to relocate?': 'Yes',
     'Are you within a commutable distance or willing to relocate?': 'Yes',
-    'Active Security Clearance(s)': 'Do not wish to disclose',
+    'Active Security Clearance(s)': ['Do not wish to disclose', 'Never held a clearance'],
     'How did you hear about this job?': 'I am in the industry',
     'Are you legally authorized to work in the United States?': 'I am authorized to work in the United States for any employer',
     'Citizenship Status': '(a) U.S. citizen or national of the United States',
@@ -51,7 +69,8 @@ for (const [labelText, optionText] of Object.entries(customFields)) {
             const select = targetLabel.querySelector('select[aria-required="true"]');
             if (select) {
                 // single-select dropdowns
-                const option = Array.from(select.options).find(o => o.textContent === optionText);
+                const numerousTexts = optionText?.length > 1;
+                const option = Array.from(select.options).find(o => numerousTexts ? optionText.includes(o.textContent) : o.textContent === optionText);
                 if (option) {
                     select.value = option.value;
                 } else {
