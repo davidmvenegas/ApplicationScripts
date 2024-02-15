@@ -1,6 +1,5 @@
 // ------------------------------ PAGE 1 ------------------------------ //
 
-
 const setPageOneValue = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
 
 // set page one fields
@@ -52,7 +51,7 @@ const pdfURL = 'https://docs.google.com/document/d/1Oe-zKdlp0BpDYQMK6FmnJpq2rV_K
 fetch(pdfURL)
     .then(response => response.blob())
     .then(blob => {
-        const file = new File([blob], 'resume.pdf', { type: 'application/pdf' });
+        const file = new File([blob], 'David_Venegas_resume.pdf', { type: 'application/pdf' });
         const fileInput = document.querySelector('input[type="file"][name="personal.resume"]');
         const dataTransfer = new DataTransfer();
         dataTransfer.items.add(file);
@@ -75,7 +74,7 @@ setTimeout(() => {
 
     // set page two fields
     const pageTwoFields = {
-        "What is your availability or notice period?": "Immediately",
+        "What is your availability or notice period?": "In 1-2 weeks",
         "I have read and understand the statements above and accept them as conditions of employment.": true,
         "Legal Name": "David Venegas",
     };
@@ -141,7 +140,7 @@ setTimeout(() => {
     const pageThreeFields = {
         "Gender": "male",
         "Veteran Status": "no",
-        "Race/Ethnicity": "white",
+        "Race/Ethnicity": "hispanic_or_latino",
         "Disability": "no",
         "Legal Name": "David Venegas"
     }
