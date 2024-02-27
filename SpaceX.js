@@ -22,6 +22,42 @@ try {
     console.error('Error occurred while setting checkbox:', error);
 }
 
+// email [CUSTOM]
+try {
+    const labels = Array.from(document.getElementsByTagName('label'));
+    const targetLabel = labels.find(label => label.textContent.includes('Email'));
+    if (targetLabel) {
+        const input = targetLabel.parentElement.querySelector('input[aria-required="true"]');
+        if (input) {
+            input.value = 'venegas1david1m1@gmail.com';
+        } else {
+            console.warn('Input element for "Email" not found.');
+        }
+    } else {
+        console.warn('Label element for "Email" not found.');
+    }
+} catch (error) {
+    console.error('Error occurred while setting the input:', error);
+}
+
+// phone number [CUSTOM]
+try {
+    const labels = Array.from(document.getElementsByTagName('label'));
+    const targetLabel = labels.find(label => label.textContent.includes('Phone'));
+    if (targetLabel) {
+        const input = targetLabel.parentElement.querySelector('input[aria-required="true"]');
+        if (input) {
+            input.value = '8573273414';
+        } else {
+            console.warn('Input element for "Phone" not found.');
+        }
+    } else {
+        console.warn('Label element for "Phone" not found.');
+    }
+} catch (error) {
+    console.error('Error occurred while setting the input:', error);
+}
+
 // fill in the 'How did you hear about this job?' field
 try {
     const labels = Array.from(document.getElementsByTagName('label'));
@@ -35,6 +71,24 @@ try {
         }
     } else {
         console.warn('Label element for "How did you hear about this job?" not found.');
+    }
+} catch (error) {
+    console.error('Error occurred while setting the input:', error);
+}
+
+// Please specify how you heard about us
+try {
+    const labels = Array.from(document.getElementsByTagName('label'));
+    const targetLabel = labels.find(label => label.textContent.includes('Please specify'));
+    if (targetLabel) {
+        const input = targetLabel.querySelector('input[type="text"]');
+        if (input) {
+            input.value = 'I work at Stoke Space, another launch provider';
+        } else {
+            console.warn('Input element for "Please specify how you heard about us" not found.');
+        }
+    } else {
+        console.warn('Label element for "Please specify how you heard about us" not found.');
     }
 } catch (error) {
     console.error('Error occurred while setting the input:', error);
