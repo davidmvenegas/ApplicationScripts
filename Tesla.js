@@ -8,7 +8,7 @@ const pageOneFields = {
     "Legal Last Name": "Venegas",
     "Phone Number": "857-327-3414",
     "Contact Phone Type": "mobile",
-    "Email": "venegas1david1m1@gmail.com",
+    "Email": "realdavidvenegas@gmail.com",
     "Country/Region of Residence": "US",
     "Profile Link": "https://www.linkedin.com/in/david-venegas-m/",
     "Profile Link Type": "linkedin",
@@ -38,7 +38,7 @@ const setTextareaValue = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElem
 Array.from(document.querySelectorAll("label")).filter((label) => label.textContent.trim() === "Evidence of Excellence").forEach((label) => {
     try {
         const textarea = document.getElementById(label.getAttribute("for"));
-        const textareaValue = "As a seasoned Senior Software Engineer with a CompTIA Security+ certification, I excel in developing cutting-edge applications and leading teams to success. My portfolio includes leading a 4-person team to launch a mission-critical application in just four months and creating the popular ChatGPT Microphone Chrome extension. I'm skilled in technologies like React, Redux, Angular, Python, and NodeJS, and I prioritize security in all my projects.\n\nMy passion for technology extends beyond work—I'm an avid space enthusiast, electric motorcycle owner (LiveWire), 5-minute miler (running), and community organizer (Seattle Code & Coffee). With a background in full-stack engineering and cloud computing from Flatiron Technical School and MIT Professional Education, I'm always learning and applying the latest advancements in tech.\n\nMy goal is to contribute to projects that push the boundaries of robotics, AI, and space exploration, driven by a desire to leave Earth better than I found it.";
+        const textareaValue = "I'm an avid space enthusiast, electric motorcycle (LiveWire) and electric car (Tesla) owner, 5-minute miler (running), and community organizer (Seattle Code & Coffee). With a background in full-stack engineering, a CompTIA Security+ certification, and a degree from MIT, I'm always learning and applying the latest advancements in tech. My goal is to push the boundaries of robotics and AI, leaving Earth better than I found it.";
         setTextareaValue.call(textarea, textareaValue);
         textarea.dispatchEvent(new Event("change", { bubbles: true }));
     } catch (error) {
@@ -140,7 +140,7 @@ setTimeout(() => {
     const pageThreeFields = {
         "Gender": "male",
         "Veteran Status": "no",
-        "Race/Ethnicity": "hispanic_or_latino",
+        "Race/Ethnicity": "white",
         "Disability": "no",
         "Legal Name": "David Venegas"
     }

@@ -5,7 +5,7 @@ try {
     if (targetLabel) {
         const input = targetLabel.parentElement.querySelector('input[aria-required="true"]');
         if (input) {
-            input.value = 'venegas1david1m1@gmail.com';
+            input.value = 'david@venegas.com';
         } else {
             console.warn('Input element for "Email" not found.');
         }
@@ -48,6 +48,8 @@ const selections = {
     'Have you previously applied to a position at Anduril?': 'No',
     'Have you ever been employed by Anduril or any company that Anduril has acquired?': 'No',
     'This position requires access to information and technology that is subject to export controls': '1. A United States citizen or national',
+    'If you held a security clearance in the past, what level and when.': 'None',
+    'If you have held a U.S. security clearance in the past, what clearance level have you held?': 'N/A - have never held U.S. security clearance'
 };
 
 try {
@@ -85,7 +87,7 @@ try {
 try {
     const whyAndurilLabel = Array.from(document.getElementsByTagName('label')).find(label => label?.textContent.includes('Why are you interested in working at Anduril?') || label?.textContent.includes('Why do you want to work at Anduril?'));
     const textarea = whyAndurilLabel.parentElement.querySelector('textarea');
-    const textareaValue = "I'm drawn to Anduril due to my expertise in software engineering, my interest in security and cutting-edge tech, and my background in leading teams and developing advanced applications. I believe I can make a valuable contribution to Anduril's mission of advancing software and hardware integration, and pushing the boundaries of innovation.";
+    const textareaValue = "I am interested in defense, US security, and cutting-edge technology. That is why Anduril has caught my attention. I believe that I can contribute to Anduril's mission by pushing the boundaries of innovation. I am excited about the opportunity to be a valuable part of the team.";
     textarea.value = textareaValue;
     textarea.dispatchEvent(new Event('input', { bubbles: true }));
 } catch (error) {

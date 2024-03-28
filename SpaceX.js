@@ -25,11 +25,47 @@ try {
 // email [CUSTOM]
 try {
     const labels = Array.from(document.getElementsByTagName('label'));
+    const targetLabel = labels.find(label => label.textContent.includes('First Name'));
+    if (targetLabel) {
+        const input = targetLabel.parentElement.querySelector('input[aria-required="true"]');
+        if (input) {
+            input.value = 'Dave';
+        } else {
+            console.warn('Input element for "Email" not found.');
+        }
+    } else {
+        console.warn('Label element for "Email" not found.');
+    }
+} catch (error) {
+    console.error('Error occurred while setting the input:', error);
+}
+
+// email [CUSTOM]
+try {
+    const labels = Array.from(document.getElementsByTagName('label'));
+    const targetLabel = labels.find(label => label.textContent.includes('Last Name'));
+    if (targetLabel) {
+        const input = targetLabel.parentElement.querySelector('input[aria-required="true"]');
+        if (input) {
+            input.value = 'Vengas';
+        } else {
+            console.warn('Input element for "Email" not found.');
+        }
+    } else {
+        console.warn('Label element for "Email" not found.');
+    }
+} catch (error) {
+    console.error('Error occurred while setting the input:', error);
+}
+
+// email [CUSTOM]
+try {
+    const labels = Array.from(document.getElementsByTagName('label'));
     const targetLabel = labels.find(label => label.textContent.includes('Email'));
     if (targetLabel) {
         const input = targetLabel.parentElement.querySelector('input[aria-required="true"]');
         if (input) {
-            input.value = 'venegas1david1m1@gmail.com';
+            input.value = 'davevengas@gmail.com';
         } else {
             console.warn('Input element for "Email" not found.');
         }
@@ -83,7 +119,7 @@ try {
     if (targetLabel) {
         const input = targetLabel.querySelector('input[type="text"]');
         if (input) {
-            input.value = 'I work at Stoke Space, another launch provider';
+            input.value = 'I work at Stoke Space Technologies and heard about this job through a colleague.';
         } else {
             console.warn('Input element for "Please specify how you heard about us" not found.');
         }
@@ -112,6 +148,7 @@ const customFields = {
     'Are you legally authorized to work in the United States?': 'I am authorized to work in the United States for any employer',
     'Citizenship Status': '(a) U.S. citizen or national of the United States',
     'Do you meet all of the Basic Qualifications listed for this job?': 'Yes',
+    'Can you perform all of the essential functions of this role with or without reasonable accommodations?': 'Yes',
 };
 
 // fill in the custom fields
